@@ -13,7 +13,7 @@ public class GameOfLife {
 		//// (Run one test at a time).
 		 ////test1(fileName);
 		//// test2(fileName);
-		/// test3(fileName, 3);
+		 test3(fileName, 3);
 		 play(fileName);
 	}
 	
@@ -56,12 +56,8 @@ public class GameOfLife {
 		int[][] board = read(fileName);
 		for (int gen = 0; gen < Ngen; gen++) {
 			System.out.println("Generation " + gen + ":");
-			In in = new In(fileName);
-		int rows = Integer.parseInt(in.readLine()  );
-		int cols = Integer.parseInt(in.readLine() );
-
-		for (int i = 1; i <=rows; i++) {
-			for (int j = 1; j <=cols; j++) {
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
 				System.out.printf("%3s", board[i][j]);
 			}
 			System.out.println(); 
