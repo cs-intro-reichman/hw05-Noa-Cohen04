@@ -91,6 +91,7 @@ public class GameOfLife {
 					board[i][j] = 1;
 				}
 				else{
+					// #feedback - the board is already set with zeros, it is the default value of an integer array.
 					board[i][j] = 0;
 				}
 			}
@@ -124,6 +125,8 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
+		// #feedback - to make the program more efficient, it is better to call count once and store it in a variable.
+		// #feedback - try to see how you can reduce the number of if and else you use, to make the code more readable and easier to maintain. For example, in case the cell is alive, you can only check if the count is equal to 2 or 3, and otherwise return 0.
 		if (board[i][j] == 1 && count(board,i,j)<2){
 			return 0;
 		}
@@ -151,6 +154,7 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
 		int counter = 0;
+		// #feedback - it is usually better to use for in these case to avoid these multiple "if"s, since it's easier to forget a cell or have the wrong row/col.
 		if(board[i+1][j] == 1)
 			counter++;
 		if(board[i+1][j-1] == 1)
